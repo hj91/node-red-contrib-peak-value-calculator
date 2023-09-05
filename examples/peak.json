@@ -1,0 +1,338 @@
+[
+    {
+        "id": "79e2d38bdef9cca9",
+        "type": "tab",
+        "label": "peak",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f93d92b2e177a8e0",
+        "type": "peak-value",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "x": 710,
+        "y": 240,
+        "wires": [
+            [
+                "8c13bee014236136"
+            ]
+        ]
+    },
+    {
+        "id": "9433d7eac06ffebb",
+        "type": "inject",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "95fd4bf8c3464d26"
+            ]
+        ]
+    },
+    {
+        "id": "e064d66aabd33abc",
+        "type": "inject",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "d8f1e837a124af8a"
+            ]
+        ]
+    },
+    {
+        "id": "6cdc65ddfbeb9978",
+        "type": "inject",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "f41d3d5a73d0a41e"
+            ]
+        ]
+    },
+    {
+        "id": "d2328360b71b54e2",
+        "type": "inject",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "1eaa89761dc0fddb"
+            ]
+        ]
+    },
+    {
+        "id": "cf4b9be6c41a0a1d",
+        "type": "inject",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "6bebcb1b1d0263be"
+            ]
+        ]
+    },
+    {
+        "id": "95fd4bf8c3464d26",
+        "type": "random",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "low": 1,
+        "high": 10,
+        "inte": "true",
+        "property": "payload",
+        "x": 440,
+        "y": 100,
+        "wires": [
+            [
+                "f93d92b2e177a8e0",
+                "19d0c7b1aade736a"
+            ]
+        ]
+    },
+    {
+        "id": "d8f1e837a124af8a",
+        "type": "change",
+        "z": "79e2d38bdef9cca9",
+        "name": "start accepting values",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "start",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "f93d92b2e177a8e0"
+            ]
+        ]
+    },
+    {
+        "id": "f41d3d5a73d0a41e",
+        "type": "change",
+        "z": "79e2d38bdef9cca9",
+        "name": "stop accepting values",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "stop",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "f93d92b2e177a8e0"
+            ]
+        ]
+    },
+    {
+        "id": "1eaa89761dc0fddb",
+        "type": "change",
+        "z": "79e2d38bdef9cca9",
+        "name": "calculate peak from values obtained",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "peak",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "f93d92b2e177a8e0"
+            ]
+        ]
+    },
+    {
+        "id": "6bebcb1b1d0263be",
+        "type": "change",
+        "z": "79e2d38bdef9cca9",
+        "name": "clear existing peak value ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "clear",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "f93d92b2e177a8e0"
+            ]
+        ]
+    },
+    {
+        "id": "8c13bee014236136",
+        "type": "debug",
+        "z": "79e2d38bdef9cca9",
+        "name": "debug 255",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 910,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "19d0c7b1aade736a",
+        "type": "debug",
+        "z": "79e2d38bdef9cca9",
+        "name": "debug 256",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 890,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b4fdcfbcacd51004",
+        "type": "comment",
+        "z": "79e2d38bdef9cca9",
+        "name": "Calculate peak values ",
+        "info": "Follow the sequence to get peak values from analog values input \n\n1.Start\n2.Stop\n3.Peak\n4.Clear",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    }
+]
