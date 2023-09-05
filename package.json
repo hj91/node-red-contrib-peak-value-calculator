@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-peak-value-calculator",
+  "version": "1.0.0",
+  "description": "A Node-RED node for calculating peak (maximum) value",
+  "main": "peak-value.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-red": {
+    "nodes": {
+      "peak-value": "peak-value.js"
+    }
+  },
+  "author": "Harshad Joshi (github.com/hj91)",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hj91/node-red-contrib-peak-value-calculator.git"
+  },
+  "keywords": [
+    "node-red",
+    "peak",
+    "value",
+    "calculator"
+  ],
+  "bugs": {
+    "url": "https://github.com/hj91/node-red-contrib-peak-value-calculator/issues"
+  },
+  "homepage": "https://github.com/hj91/node-red-contrib-peak-value-calculator#readme"
+}
+
