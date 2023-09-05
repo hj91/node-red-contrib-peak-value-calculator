@@ -1,0 +1,70 @@
+<!--
+
+node-red-contrib-peak-value-calculator/peak-value.html - Copyright 2023 Harshad Joshi and Bufferstack.IO Analytics Technology LLP, Pune.
+
+Licensed under the GNU General Public License, Version 3.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://www.gnu.org/licenses/gpl-3.0.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('peak-value', {
+        category: 'Bufferstack.IO Analog Value Calculations',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: '' }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-signal',
+        label: function() {
+            return this.name || 'peak value';
+        },
+        paletteLabel: 'peak value',
+        oneditprepare: function() {
+            // Reserved for further use
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="peak-value">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="peak-value">
+    <p>This node calculates the peak (maximum) value among the incoming numbers.</p>
+    <h3>Inputs</h3>
+    <dl>
+        <dt>start (boolean)</dt>
+        <dd>Starts accepting values for peak calculation</dd>
+        <dt>stop (boolean)</dt>
+        <dd>Stops accepting values</dd>
+        <dt>peak (boolean)</dt>
+        <dd>Triggers a peak value calculation and sends the result</dd>
+        <dt>clear (boolean)</dt>
+        <dd>Clears the stored peak value and stops accepting values</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <p>Sends out a message containing the peak value calculated so far:</p>
+    <pre>{"peak": value}</pre>
+    <h3>Status</h3>
+    <ul>
+        <li><span class="badge badge-green"></span> Started: Accepting values for peak calculation</li>
+        <li><span class="badge badge-red"></span> Stopped: Not accepting values</li>
+        <li><span class="badge badge-yellow"></span> Peak calculated: A peak value has been calculated</li>
+        <li><span class="badge badge-blue"></span> Cleared: Stored peak value has been cleared</li>
+    </ul>
+</script>
+
