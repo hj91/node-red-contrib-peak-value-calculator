@@ -12,8 +12,8 @@
         "type": "peak-value",
         "z": "79e2d38bdef9cca9",
         "name": "",
-        "x": 710,
-        "y": 240,
+        "x": 770,
+        "y": 280,
         "wires": [
             [
                 "8c13bee014236136"
@@ -39,8 +39,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "num",
+        "payload": "true",
+        "payloadType": "bool",
         "x": 110,
         "y": 100,
         "wires": [
@@ -171,7 +171,7 @@
         "z": "79e2d38bdef9cca9",
         "name": "",
         "low": 1,
-        "high": 10,
+        "high": "100",
         "inte": "true",
         "property": "payload",
         "x": 440,
@@ -304,7 +304,7 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 910,
+        "x": 1110,
         "y": 240,
         "wires": []
     },
@@ -330,9 +330,65 @@
         "type": "comment",
         "z": "79e2d38bdef9cca9",
         "name": "Calculate peak values ",
-        "info": "Follow the sequence to get peak values from analog values input \n\n1.Start\n2.Stop\n3.Peak\n4.Clear",
+        "info": "Follow the sequence to get peak values from analog values input \n\n1.Start\n2.Stop\n3.Peak\n4.Clear\n\nNew addition on 27 Feb 2024 - Now we can calculate low peak value by sending true signal with topic - low_peak",
         "x": 140,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "1a2f65bd309788b2",
+        "type": "inject",
+        "z": "79e2d38bdef9cca9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 480,
+        "wires": [
+            [
+                "1d329acef88120ba"
+            ]
+        ]
+    },
+    {
+        "id": "1d329acef88120ba",
+        "type": "change",
+        "z": "79e2d38bdef9cca9",
+        "name": "calculate low peak from values obtained",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "low_peak",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 480,
+        "wires": [
+            [
+                "f93d92b2e177a8e0"
+            ]
+        ]
     }
 ]
