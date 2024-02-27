@@ -23,6 +23,7 @@ module.exports = function(RED) {
         const node = this;
 
         let peakValue = -Infinity;
+        let lowPeakValue = Infinity; // Initialize with positive infinity for comparison
         let acceptingValues = false;
 
         node.on("input", function(msg) {
@@ -34,19 +35,27 @@ module.exports = function(RED) {
                     acceptingValues = false;
                     node.status({fill: "red", shape: "dot", text: "Stopped"});
                 } else if (msg.topic === "peak" && msg.payload === true) {
-                    msg.payload = {"peak": peakValue};
+                    msg.payload = {"peak": peakValue, "low_peak": lowPeakValue};
                     node.send(msg);
                     node.status({fill: "yellow", shape: "dot", text: "Peak calculated"});
                 } else if (msg.topic === "clear" && msg.payload === true) {
                     peakValue = -Infinity;
+                    lowPeakValue = Infinity;
                     acceptingValues = false;
                     node.status({fill: "blue", shape: "dot", text: "Cleared"});
+                } else if (msg.topic === "low_peak" && msg.payload === true) {
+                    msg.payload = {"low_peak": lowPeakValue};
+                    node.send(msg);
+                    node.status({fill: "orange", shape: "dot", text: "Low Peak calculated"});
                 } else if (acceptingValues) {
                     if (typeof msg.payload !== "number") {
                         throw new Error("Expected a number for payload");
                     }
                     if (msg.payload > peakValue) {
                         peakValue = msg.payload;
+                    }
+                    if (msg.payload < lowPeakValue) {
+                        lowPeakValue = msg.payload;
                     }
                     node.status({fill: "green", shape: "dot", text: "Accepting values"});
                 } else {
