@@ -13,7 +13,7 @@
 
 ## Overview
 
-The Node-RED Peak Value Calculator Node is a node designed for Node-RED. It allows you to effortlessly calculate peak values in real-time data streams. It's particularly useful for systems that require monitoring and analysis of peak data points, such as analog input systems, control systems, and more.
+The Node-RED Peak Value Calculator Node is a node designed for Node-RED. It allows you to effortlessly calculate peak and low peak values in real-time data streams. It's particularly useful for systems that require monitoring and analysis of peak data points, such as analog input systems, control systems, and more.
 
 ## Installation
 
@@ -33,6 +33,16 @@ After installation, the node will appear in your Node-RED palette under the cate
 2. **Peak Calculation**: The node will automatically calculate the peak value among the received data points.
 3. **Status Indicators**: Real-time status updates are shown for all the operations performed by the node.
 4. **Ease of Use**: Simply drag and drop the node into your Node-RED flow to start using it.
+
+### Input
+
+Send boolean input with following topics
+1. **start (boolean)**: Starts accepting values for peak calculation
+2. **stop (boolean)**: Stops accepting values
+3. **peak (boolean)**: Triggers a peak value calculation and sends the result containing peak and low peak value
+4. **low_peak (boolean)**: Triggers a peak value calculation and sends the result containing low peak value only
+5. **clear (boolean)**: Clears the stored peak value and stops accepting values
+
 
 ### Example Workflow
 
