@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-peak-value-calculator",
-  "version": "1.0.0",
-  "description": "A Node-RED node for calculating peak (maximum) value",
+  "version": "1.0.1",
+  "description": "A Node-RED node for calculating peak (maximum) and lowest peak (minimum) value",
   "main": "peak-value.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
